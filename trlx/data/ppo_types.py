@@ -26,11 +26,11 @@ class PPORLElement:
                     Should be a float tensor of same size as tokens.
     :type rewards: jax.numpy.ndarray
     """
-    query_tensor: Array[Long, "query_size"]
-    response_tensor: Array[Long, "response_size"]
-    logprobs: Array[Float, "response_size"]
-    values: Array[Float, "response_size"]
-    rewards: Array[Float, "response_size"]
+    query_tensor: Long[Array, "query_size"]
+    response_tensor: Long[Array, "response_size"]
+    logprobs: Float[Array, "response_size"]
+    values: Float[Array, "response_size"]
+    rewards: Float[Array, "response_size"]
 
 
 @dataclass
@@ -53,8 +53,8 @@ class PPORLBatch:
     :param rewards: A batch of rewards
     :type rewards: jax.numpy.ndarray
     """
-    query_tensors: Array[Long, "batch_size", "query_size"]
-    response_tensors: Array[Long, "batch_size", "response_size"]
-    logprobs: Array[Float, "batch_size", "response_size"]
-    values: Array[Float, "batch_size", "response_size"]
-    rewards: Array[Float, "batch_size", "response_size"]
+    query_tensors: Long[Array, "batch_size", "query_size"]
+    response_tensors: Long[Array, "batch_size", "response_size"]
+    logprobs: Float[Array, "batch_size", "response_size"]
+    values: Float[Array, "batch_size", "response_size"]
+    rewards: Float[Array, "batch_size", "response_size"]

@@ -27,12 +27,12 @@ class ILQLElement:
     :param rewards: Rewards for each token. Should be a float tensor of same size as tokens.
     :type rewards: jax.numpy.ndarray
     """
-    input_ids: Array[Long, "query_size"]
-    attention_mask: Array[Long, "query_size"]
-    rewards: Array[Float, "reward_size"]
-    states_ixs: Array[Float, "states_size"]
-    actions_ixs: Array[Float, "reward_size"]
-    dones: Array[Float, "states_size"]
+    input_ids: Long[Array, "query_size"]
+    attention_mask: Long[Array, "query_size"]
+    rewards: Float[Array, "reward_size"]
+    states_ixs: Float[Array, "states_size"]
+    actions_ixs: Float[Array, "reward_size"]
+    dones: Float[Array, "states_size"]
 
 
 @dataclass
@@ -49,13 +49,13 @@ class ILQLSeq2SeqElement:
     :param rewards: Rewards for each token. Should be a float tensor of same size as tokens.
     :type rewards: jax.numpy.ndarray
     """
-    input_ids: Array[Long, "query_size"]
-    attention_mask: Array[Long, "query_size"]
-    decoder_input_ids: Array[Float, "reward_size"]
-    rewards: Array[Float, "reward_size"]
-    states_ixs: Array[Float, "states_size"]
-    actions_ixs: Array[Float, "reward_size"]
-    dones: Array[Float, "states_size"]
+    input_ids: Long[Array, "query_size"]
+    attention_mask: Long[Array, "query_size"]
+    decoder_input_ids: Float[Array, "reward_size"]
+    rewards: Float[Array, "reward_size"]
+    states_ixs: Float[Array, "states_size"]
+    actions_ixs: Float[Array, "reward_size"]
+    dones: Float[Array, "states_size"]
 
 
 @dataclass
@@ -73,12 +73,12 @@ class ILQLBatch:
     :type rewards: jax.numpy.ndarray
     """
 
-    input_ids: Array[Float, "batch_size", "query_size"]
-    attention_mask: Array[Float, "batch_size", "query_size"]
-    rewards: Array[Float, "batch_size", "reward_size"]
-    states_ixs: Array[Float, "batch_size", "states_size"]
-    actions_ixs: Array[Float, "batch_size", "reward_size"]
-    dones: Array[Float, "batch_size", "states_size"]
+    input_ids: Float[Array, "batch_size", "query_size"]
+    attention_mask: Float[Array, "batch_size", "query_size"]
+    rewards: Float[Array, "batch_size", "reward_size"]
+    states_ixs: Float[Array, "batch_size", "states_size"]
+    actions_ixs: Float[Array, "batch_size", "reward_size"]
+    dones: Float[Array, "batch_size", "states_size"]
 
 
 @dataclass
@@ -95,10 +95,10 @@ class ILQLSeq2SeqBatch:
     :param rewards: Batch of rewards for each token in each token batch.
     :type rewards: jax.numpy.ndarray
     """
-    input_ids: Array[Float, "batch_size", "query_size"]
-    attention_mask: Array[Float, "batch_size", "query_size"]
-    decoder_input_ids: Array[Float, "batch_size", "reward_size"]
-    rewards: Array[Float, "batch_size", "reward_size"]
-    states_ixs: Array[Float, "batch_size", "states_size"]
-    actions_ixs: Array[Float, "batch_size", "reward_size"]
-    dones: Array[Float, "batch_size", "states_size"]
+    input_ids: Float[Array, "batch_size", "query_size"]
+    attention_mask: Float[Array, "batch_size", "query_size"]
+    decoder_input_ids: Float[Array, "batch_size", "reward_size"]
+    rewards: Float[Array, "batch_size", "reward_size"]
+    states_ixs: Float[Array, "batch_size", "states_size"]
+    actions_ixs: Float[Array, "batch_size", "reward_size"]
+    dones: Float[Array, "batch_size", "states_size"]
